@@ -119,7 +119,7 @@ for(let i=0; i<=9; i++){
     `
   }
 
-  if( layers[i].ship == true & layers[i].torpedo == true){
+  if( layers[i].ship == true && layers[i].torpedo == true){
     objects += `
       <div class="explosion">
         <div class="fire-bottom-sm"></div>
