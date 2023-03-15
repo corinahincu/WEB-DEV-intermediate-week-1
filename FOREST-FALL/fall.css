@@ -1,0 +1,235 @@
+:root{
+  /* scene variables */
+  --ambient-color:rgb(46, 11, 11);
+  --width: 900px;
+  --height: 600px;
+
+  /*  fall animation variables */
+  --fall-start-top: 0;
+  --fall-start-left:0;
+  --fall-start-rx: 0;
+  --fall-start-ry: 0;
+  --fall-start-rz: 0;
+  --fall-start-s: 0.6;
+
+  --fall-end-top: 100%;
+  --fall-end-left: 200%;
+  --fall-end-rx: 1turn;
+  --fall-end-ry: 1turn;
+  --fall-end-rz: 1turn;
+  --fall-end-s: 1.0;
+
+  --fall-duration: 10s;
+
+  --fall-delay: 0s;
+
+
+  /* shine animation variables */
+  --shine-start-angle: -.1turn;
+  --shine-end-angle: -.11turn;
+}
+/* resetting styles*/
+body{
+  margin: 0;
+  font-family: Arial;
+  background-color: var(--ambient-color);
+}
+
+.container{
+  border: 1px solid white;
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  overflow: hidden;
+}
+.background {
+
+    background-image: url(images/backgrounds/background-1.jpg);
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
+}
+
+.scene-mask-1 {
+  perspective: 500px;
+
+  /* CSS masking */
+  -webkit-mask-image: url(images/backgrounds/background-1-mask-1.svg);
+  -webkit-mask-size: cover;
+}
+
+.scene-mask-2 {
+  perspective: 500px;
+
+  /* CSS masking */
+  -webkit-mask-image: url(images/backgrounds/background-1-mask-4.svg);
+  -webkit-mask-size: cover;
+}
+
+.leaf{
+  width: calc( var(--width) / 20 );
+  height: calc( var(--width) / 20 );
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: -20%;
+
+}
+
+.leaf-1{
+  background-image: url(images/leaves/leaf-1.png);
+}
+.leaf-2 {
+  background-image: url(images/leaves/leaf-2.png);
+}
+.leaf-3 {
+  background-image: url(images/leaves/leaf-3.png);
+}
+.leaf-4 {
+  background-image: url(images/leaves/leaf-4.png);
+}
+.leaf-5 {
+  background-image: url(images/leaves/leaf-5.png);
+}
+
+.fall{
+  /* apply the animation */
+    animation: fall var(--fall-duration) ease-in infinite;
+    animation-fill-mode: forwards;
+    animation-delay: var(--fall-delay);
+}
+
+/* CSS animation */
+
+@keyframes fall {
+  from {
+    left: var(--fall-start-left) ;
+    top: var(--fall-start-top);
+    transform: rotateX(var(--fall-start-rx)) rotateY(var(--fall-start-ry)) rotateZ(var(--fall-start-rz)) scale(--fall-start-s);
+  }
+  to   {
+    /* top: calc( 100% - var(--width) / 10); */
+    left: var(--fall-end-left);
+    top: var(--fall-end-top);
+    transform: rotateX(var(--fall-end-rx)) rotateY(var(--fall-end-ry)) rotateZ(var(--fall-end-rz)) scale(var(--fall-end-s));
+  }
+}
+
+/* ray */
+
+.ray {
+  width: 1600px;
+  height: 20px;
+  position: absolute;
+  top: 45px;
+  left: -300px;
+
+  background-image: 
+    conic-gradient(
+      transparent .745turn, /* .5 + 0.1 */
+      #fdf895, 
+      #d78356,
+      #fdf895,
+      #f5e087df,
+      #fdf895,
+
+      transparent .755turn /* 1.0 - 0.1 */
+      );
+
+}
+
+/* fog */
+
+.fog{
+  width: 1600px;
+  height: 800px;
+  
+  background-size: contain;
+}
+
+.fog-1{
+  background-image: url(images/fog/fog-1.png);
+  opacity: 0.75;
+  filter: sepia(100%) saturate(1000%) hue-rotate(328deg);
+}
+
+.slide{
+  animation: slide 500s linear;
+}
+
+@keyframes slide {
+  from{
+    background-position-x: 0 ;
+  }
+  to{
+    background-position-x:10000px ;
+  }
+}
+.ray-1{
+  --shine-start-angle: -.05turn;
+  --shine-end-angle: -.088turn;
+
+  transform: rotate(-.1turn);
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+
+  animation: shine 5s infinite alternate;
+}
+
+.ray-2 {
+  /* --shine-start-angle : -.05turn;
+  --shine-end-angle: -.059turn; */
+    --shine-start-angle : -.13turn;
+    --shine-end-angle: -.20turn; 
+  transform: rotate(-.09turn);
+  mix-blend-mode: soft-light;
+  opacity: 0.3;
+
+  animation: shine 5s infinite alternate;
+  animation-delay: 2.1s;
+}
+
+.ray-3 {
+  --shine-start-angle: 1.2turn;
+  --shine-end-angle: 0.97turn;
+  transform: rotate(-.09turn);
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+
+  animation: shine 5s infinite alternate;
+  animation-delay: 3.1s;
+}
+
+.ray-4 {
+  --shine-start-angle: -.95turn;
+  --shine-end-angle: -1turn;
+  transform: rotate(-.09turn);
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+
+  animation: shine 5s infinite alternate;
+  animation-delay: 4.1s;
+}
+
+.ray-5 {
+  --shine-start-angle: -.20turn;
+  --shine-end-angle: -.25turn;
+  transform: rotate(-.09turn);
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+
+  animation: shine 5s infinite alternate;
+  animation-delay: 5.1s;
+}
+
+
+
+@keyframes shine {
+  from {
+    transform: rotate(var(--shine-start-angle));
+  }
+  to {
+    transform: rotate(var(--shine-end-angle));
+  }
+}
