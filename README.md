@@ -12,3 +12,6 @@ SEA BATTLE - PART2
 
 SEA BATTLE - PART3
 ![image](https://user-images.githubusercontent.com/117738625/225112461-6b3f323e-1b58-44f4-b262-91cffb4ad2ea.png)
+
+SEA BATTLE - PART4
+![image](https://user-images.githubusercontent.com/117738625/225326888-1315899a-ec41-4c06-84fb-5e9d847359d9.png)
