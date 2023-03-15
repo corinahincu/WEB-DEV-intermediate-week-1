@@ -1,8 +1,0 @@
-
-
-@for $i from 1 through 10 {
-  .sea .layer:nth-child(#{$i}) {
-      z-index: 10 - $i;
-      transform: translateZ(-50px * $i);
-    }
-}
